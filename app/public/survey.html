@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Friends Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="../../app/assets/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300" rel="stylesheet">
+    <script src="../../server.js"></script>
+    <script src="../routing/apiRoutes.js"> </script>
+    <script src="../routing/htmlRoutes.js"> </script>
+    <script src="../data/friends.js"></script>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="row" > 
+            <div class="col-md-12"><img id="friendsquizlogo" src="../../app/assets/images/friendsquizlogo.png" alt="logo"></div>
+        </div>
+        <form action="">
+        <div class="row">
+            
+                <div class="col-md-1"></div>
+                
+                <div class="col-md-5" id="nameinput">
+                        <label for="name" >Name:</label>
+                        <input type="text" name="" id="name" placeholder="name" required>
+                </div>
+                
+                <div class="col-md-5">
+                        <label for="name">Link to Photo Image:</label>
+                        <input type="url" name="" id="name" placeholder="url" required>
+                </div>
+                
+                <div class="col-md-2"></div>
+        
+        </div>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                    <div id="questions">
+                        <ol>
+                            <li>
+                                <label for="question1">Your mind is always buzzing with unexplored ideas and plans.</label><br>
+                                <select id="question1" name="question1" required>
+                                    <option value="" disabled selected value> Select an Option</option>
+                                    <option value="1">1 (strongly disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (strongly agree)</option>
+                                </select>                            
+                            </li>
+                            
+                            <br>
+                            
+                            <li>
+                                <label for="question2">Generally speaking, you rely more on your experience than your imagination.</label><br>
+                                <select id="question2" name="question2" required>
+                                    <option value="" disabled selected value> Select an Option</option>
+                                    <option value="1">1 (strongly disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (strongly agree)</option>
+                                </select>                            
+                            </li>
+
+                            <br>
+
+                            <li>
+                                <label for="question3">You find it easy to stay relaxed and focused even when there is some pressure.</label><br>
+                                <select id="question3" name="question3" required>
+                                    <option value="" disabled selected value> Select an Option</option>
+                                    <option value="1">1 (strongly disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (strongly agree)</option>
+                                </select>                            
+                            </li>
+
+                            <br>
+
+                            <li>
+                                <label for="question4">You rarely do something just out of sheer curiosity.
+                                    </label><br>
+                                <select id="question4" name="question4" required>
+                                    <option value="" disabled selected value> Select an Option</option>
+                                    <option value="1">1 (strongly disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (strongly agree)</option>
+                                </select>                            
+                            </li>
+
+                            <br>
+
+                            <li>
+                                <label for="question5">People can rarely upset you.
+                                    </label><br>
+                                <select id="question5" name="question5" required>
+                                    <option value="" disabled selected value> Select an Option</option>
+                                    <option value="1">1 (strongly disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (strongly agree)</option>
+                            </select>                            
+                            </li>
+
+                            <br>
+
+                            <li>
+                                <label for="question6">It is often difficult for you to relate to other people’s feelings.</label><br>
+                                <select id="question6" name="question6" required>
+                                    <option value="" disabled selected value> Select an Option</option>
+                                    <option value="1">1 (strongly disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (strongly agree)</option>
+                                </select>                            
+                            </li>
+
+                            <br>
+
+                            <li>
+                                <label for="question7">In a discussion, truth should be more important than people’s sensitivities.</label><br>
+                                <select id="question7" name="question7" required>
+                                    <option value="" disabled selected value> Select an Option</option>
+                                    <option value="1">1 (strongly disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (strongly agree)</option>
+                                </select>                            
+                            </li>
+
+                            <br>
+
+                            <li>
+                                <label for="question8">You rarely get carried away by fantasies and ideas.</label><br>
+                                <select id="question8" name="question8" required>
+                                    <option value="" disabled selected value> Select an Option</option>
+                                    <option value="1">1 (strongly disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (strongly agree)</option>
+                                </select>                            
+                            </li>
+
+                            <br>
+
+                            <li>
+                                <label for="question9">You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</label><br>
+                                <select id="question9" name="question9" required>
+                                    <option value="" disabled selected value> Select an Option</option>
+                                    <option value="1">1 (strongly disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (strongly agree)</option>
+                                </select>                            
+                            </li>
+                            
+                            <br>
+
+                            <li>
+                                <label for="question10">You feel more energetic after spending time with a group of people.</label><br>
+                                <select id="question10" name="question10" required>
+                                    <option value="" disabled selected value> Select an Option</option>
+                                    <option value="1">1 (strongly disagree)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5 (strongly agree)</option>
+                                </select>                            
+                            </li>
+                        </ol>
+                    </div>
+                    
+                    <div class="row">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-4"><a href="#"><input id="submitbutton" type="image" name="submit" src="../../app/assets/images/submitbutton.png" border="0" alt="Submit"/></a></div>
+                            <div class="col-md-4"></div>
+                    </div>
+                
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</body>
+</html>
