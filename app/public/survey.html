@@ -3,22 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Friends Finder</title>
+    <title>Friends Finder Quiz</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="../../app/assets/style.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300" rel="stylesheet">
-    <script src="../../server.js"></script>
-    <script src="../routing/apiRoutes.js"> </script>
-    <script src="../routing/htmlRoutes.js"> </script>
-    <script src="../data/friends.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed:300" rel="stylesheet">    
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
         
         <div class="row" > 
-            <div class="col-md-12"><img id="friendsquizlogo" src="../../app/assets/images/friendsquizlogo.png" alt="logo"></div>
+            <div class="col-md-12"><img id="friendsquizlogo" src="images/friendsquizlogo.png" alt="logo"></div>
         </div>
         <form action="">
         <div class="row">
@@ -89,8 +85,7 @@
                             <br>
 
                             <li>
-                                <label for="question4">You rarely do something just out of sheer curiosity.
-                                    </label><br>
+                                <label for="question4">You rarely do something just out of sheer curiosity.</label><br>
                                 <select id="question4" name="question4" required>
                                     <option value="" disabled selected value> Select an Option</option>
                                     <option value="1">1 (strongly disagree)</option>
@@ -104,8 +99,7 @@
                             <br>
 
                             <li>
-                                <label for="question5">People can rarely upset you.
-                                    </label><br>
+                                <label for="question5">People can rarely upset you.</label><br>
                                 <select id="question5" name="question5" required>
                                     <option value="" disabled selected value> Select an Option</option>
                                     <option value="1">1 (strongly disagree)</option>
@@ -190,7 +184,7 @@
                     
                     <div class="row">
                             <div class="col-md-4"></div>
-                            <div class="col-md-4"><a href="#"><input id="submitbutton" type="image" name="submit" src="../../app/assets/images/submitbutton.png" border="0" alt="Submit"/></a></div>
+                            <div class="col-md-4"><input id="myBtn" id="submitbutton" type="image" name="submit" src="images/submitbutton.png" border="0" alt="Submit"/></div>
                             <div class="col-md-4"></div>
                     </div>
                 
@@ -199,5 +193,76 @@
             <div class="col-md-1"></div>
         </div>
     </div>
+    
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Best Match:</h2>
+    <h2><img src="https://media.giphy.com/media/iUkHzjqLAeCD6/giphy.gif" alt=""></h2>
+  </div>
+
+</div>
+
+<script type="text/javascript">
+
+    $("#submitbutton").on("click", function(event) {
+        event.preventDefault();
+        var userAnswers = {
+            scores:[
+                $('#question1').val(),
+                $('#question2').val(),
+                $('#question3').val(),
+                $('#question4').val(),
+                $('#question5').val(),
+                $('#question6').val(),
+                $('#question7').val(),
+                $('#question8').val(),
+                $('#question9').val(),
+                $('#question10').val()
+            ]
+        };
+
+        console.log('userAnswers = ' + JSON.stringify(userAnswers));
+        
+        $.post('/api/friends', userInput)
+    });
+
+///MODAL/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+
+$("form").on('submit', function(){
+   $('.modal').show();
+})
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+</script>
+
 </body>
 </html>
